@@ -1,0 +1,20 @@
+@CrossOrigin("http://localhost:3000")
+@RestController
+@RequestMapping("/")
+public class HomeController {
+
+	@GetMapping("/")
+	public String welcome() {
+		return "Welcome To Zuul POC project";
+	}
+	
+	@PostMapping("/user")
+	public String createUser(@RequestBody User user) {
+		String response = "Failure";
+		if(user != null) {
+			response = user.toString();
+			System.out.println("Response : "+response);
+		}
+		return response;
+	}
+}
